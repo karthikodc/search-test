@@ -93,6 +93,22 @@ $(document).ready(function() {
         $(".content").hide();
     });
 });
+$(document).ready(function() {
+
+    $('ul.pageNumber li').click(function(e) {
+        var $target = $(e.target);
+        if(!$target.is("li")) //magic happens here!!
+        {
+            return;
+        }
+		alert("$target");
+        var launch = $('a.launch', this);
+        if (launch.size() > 0) 
+        { 
+          eval(launch[0].onclick());
+        }
+    });
+});
  //function for tabs   
  $(function() {
          $( "#tabs" ).tabs();
@@ -782,13 +798,13 @@ function search() {
 			console.log("discussion::"+discussion);
 			console.log("discussion_count::"+total_page_discussion);
 			$("#tabs-1").html(all);
-			discussion +='<br><div class="pagingControls">Page:'+paginate_discussion+'</div>';
+			discussion +='<br><div class="pagingControls">Page:<ul class="pageNumber">'+paginate_discussion+'</ul></div>';
 			
 			$("#tabs-2").html(discussion);
-			document +='<br><div class="pagingControls">Page:'+paginate_document+'</div>';
+			document +='<br><div class="pagingControls">Page:<ul class="pageNumber">'+paginate_document+'</ul></div>';
 			console.log("document::"+document);
 			$("#tabs-3").html(document);
-			post +='<br><div class="pagingControls">Page:'+paginate_blog+'</div>';
+			post +='<br><div class="pagingControls">Page:<ul class="pageNumber">'+paginate_blog+'</ul></div>';
 			$("#tabs-4").html(post);
             $("#search-info").show();
 			gadgets.window.adjustHeight();
