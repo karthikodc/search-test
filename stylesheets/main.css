@@ -93,6 +93,7 @@ color: #000;
 background-color: #FEE496;
 }
 .pagingControls a.active{
+cursor:default;
 color: #000;
 background-color: #FEE496;
 }
