@@ -97,12 +97,7 @@ cursor:default;
 color: #000;
 background-color: #FEE496;
 }
-#pageNumber li  {background-color: transparent; text-decoration: none; display:inline}
-#pageNumber li:hover {background-color: #ff8700;}
-#pageNumber li:focus {background-color: #ff8700;}
-#pageNumber li a { display:block; }
-#pageNumber li a:target { background-color:black; }
-#pageNumber li:active {background-color: #f00;}
+
 /* Border for search-result*/
 .withborder {
   
