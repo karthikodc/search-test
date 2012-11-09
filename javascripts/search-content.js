@@ -634,6 +634,7 @@ function search() {
 			//all +="<br>"+post;
 			
 			console.log("discussion::"+discussion);
+			console.log("discussion_count::"+total_page_discussion);
 			//$("#tabs-1").html(all);
 			discussion +='<div class="pagingControls">Page:'+paginate_discussion+'</div>';
 			
