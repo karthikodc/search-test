@@ -642,7 +642,7 @@ function search() {
 			document +='<div class="pagingControls">Page:'+paginate_document+'</div>';
 			console.log("document::"+document);
 			$("#tabs-2").html(document);
-			blog +='<div class="pagingControls">Page:'+paginate_blog+'</div>';
+			post +='<div class="pagingControls">Page:'+paginate_blog+'</div>';
 			$("#tabs-3").html(post);
             $("#search-info").show();
 			gadgets.window.adjustHeight();
