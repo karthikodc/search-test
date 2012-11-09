@@ -296,12 +296,7 @@ function expandDocument(id){
 
 //function for expand button to display the blog
 function expandBlog(blogId, blogpostId){
-	var postId=blogpostId;
-	var finalpostId=postId.substr(0,postId.indexOf('/'))
-	console.log("Inside Blog expand and post id is"+finalpostId);
-	$(".content").html("");
-	$('.firstdiv').css('background-color', '#FFFFFF');
-	$('#div_'+finalpostId).css('background-color', '#F2F2F2');
+	
 	console.log("Inside Blog expand");
 	var blogdata="";
 	var request = osapi.jive.core.blogs.get({id:blogId});
@@ -536,7 +531,7 @@ function search() {
 					var blogSummaryId=row.blogSummary.resources.self.ref;
 					var blogId = (blogSummaryId.substring(blogSummaryId.lastIndexOf("/"))).substr(1);
 					var postId = (postDetailsId.substring(postDetailsId.lastIndexOf("/"))).substr(1);
-				
+					allId=postId;
 					typeImage ='<span class="jive-icon-med jive-icon-blog"></span>';
 					mainId="all_post-"+postId+"/"+blogId;
 				}
