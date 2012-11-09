@@ -448,6 +448,31 @@ function search() {
                 dateM=myDate[1];
 				var finalMonth=monthConvert(dateM);
 				var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
+							var allId = (row.resources.self.ref.substring(row.resources.self.ref.lastIndexOf("/"))).substr(1);
+							all +='<div id="div_'+allId+'" class="firstdiv" >'; 
+							all +='<ul>';			
+				            all +=discussionImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
+                            all +='</ul>';
+                            all +='<ul>';
+				            all +='<span class="jive-icon-med image-button " id="'+discussionID+'"></span>';
+                    		all +='</ul>'; 
+					
+				            all +='<div class="root1">';  
+                    		all +='<ul>';                   
+                    		all +='<li>Created by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+username+'>'+author+'</a></li>';
+				            all +='&nbsp;&nbsp<li>Date:'+newDate+'</li>';                    
+                    		all +='&nbsp;&nbsp<li>Replies:'+replyCount+'</li>'; 
+                    		all +='</ul>';
+				            all +='</div>';
+					
+				            all +='<div class="root">';
+                            all +='<ul>';                   
+                   		    all +='<div class="align">'+contentSummary+'</div>';                  
+                    	    all +='</ul>';
+							all +='</div>';				                
+							all +='</div>';
+							
+								//discussion +='<br>';
 					
                         if(row.type=="discussion"){
 						
@@ -631,9 +656,9 @@ function search() {
 			
 				
             //console.log(html);
-			all +=discussion;
-			all +="<br>"+document;
-			all +="<br>"+post;
+			//all +=discussion;
+			//all +="<br>"+document;
+			//all +="<br>"+post;
 			
 			console.log("discussion::"+discussion);
 			console.log("discussion_count::"+total_page_discussion);
