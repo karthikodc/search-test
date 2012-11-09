@@ -457,22 +457,22 @@ function search() {
 					if(isQuestion)
 					{
 					if(isAnswered != 0){
-					typeImage +='<span class="jive-icon-med jive-icon-discussion-correct"></span>';
+					typeImage ='<span class="jive-icon-med jive-icon-discussion-correct"></span>';
 									
 					 }
 					 else
 					 {
-					  typeImage +='<span class="jive-icon-med jive-icon-discussion-question"></span>';
+					  typeImage ='<span class="jive-icon-med jive-icon-discussion-question"></span>';
 					  }						
 					}
 							
 						 else
 					{
-					  typeImage +='<span class="jive-icon-med jive-icon-discussion"></span>';
+					  typeImage ='<span class="jive-icon-med jive-icon-discussion"></span>';
 					}
 				}else if(row.type=="document"){
 				
-					typeImage +='<span class="jive-icon-med jive-icon-document"></span>';
+					typeImage ='<span class="jive-icon-med jive-icon-document"></span>';
 					mainId="DOC-"+allId;
 				}else if(row.type=="blog"){
 					var postDetailsId=row.resources.self.ref;
@@ -480,7 +480,7 @@ function search() {
 					var blogId = (blogSummaryId.substring(blogSummaryId.lastIndexOf("/"))).substr(1);
 					var postId = (postDetailsId.substring(postDetailsId.lastIndexOf("/"))).substr(1);
 				
-					typeImage +='<span class="jive-icon-med jive-icon-document"></span>';
+					typeImage ='<span class="jive-icon-med jive-icon-blog"></span>';
 					mainId="post-"+postId+"/"+blogId;
 				}
 							
