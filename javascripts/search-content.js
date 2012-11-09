@@ -447,14 +447,30 @@ function search() {
                 myDate=myDate.split("-"); 
                 dateM=myDate[1];
 				var finalMonth=monthConvert(dateM);
-				var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
+				var newDate=finalMonth+" "+myDate[2]+","+myDate[0];
+					if(isQuestion)
+					{
+					if(isAnswered != 0){
+					discussionImage +='<span class="jive-icon-med jive-icon-discussion-correct"></span>';
+									
+					 }
+					 else
+					 {
+					  discussionImage +='<span class="jive-icon-med jive-icon-discussion-question"></span>';
+					  }						
+					}
+							
+						 else
+					{
+					  discussionImage +='<span class="jive-icon-med jive-icon-discussion"></span>';
+					}
 							var allId = (row.resources.self.ref.substring(row.resources.self.ref.lastIndexOf("/"))).substr(1);
 							all +='<div id="div_'+allId+'" class="firstdiv" >'; 
 							all +='<ul>';			
 				            all +=discussionImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
                             all +='</ul>';
                             all +='<ul>';
-				            all +='<span class="jive-icon-med image-button " id="'+discussionID+'"></span>';
+				            all +='<span class="jive-icon-med image-button " id="'+allId+'"></span>';
                     		all +='</ul>'; 
 					
 				            all +='<div class="root1">';  
