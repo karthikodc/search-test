@@ -2,6 +2,7 @@
 var total_page_discussion =0;
 var total_page_document =0;
 var total_page_blog =0;
+var total_page_all =0;
 
 // On-view-load initialization
 function init() {
@@ -313,9 +314,13 @@ else if(type=="document")
 {
 var totalPage=total_page_document;
 }
-else
+else if(type=="blog")
 {
 var totalPage=total_page_blog;
+}
+else
+{
+var totalPage=total_page_all;
 }
 
  var selectedPage=".div_page_"+type+"_"+page;
@@ -393,9 +398,11 @@ function search() {
 			var intial_discussion=1;
 			var intial_document=1;
 			var intial_blog=1;
+			var intial_all=1;
 			var loop_check_discussion=0;
 			var loop_check_document=0;
 			var loop_check_blog=0;
+			var loop_check_all=0;
 			var items_per_page =3;
 			var newcontent = '';
 			var page_index=0;
@@ -404,6 +411,7 @@ function search() {
 			var display_discussion="display:block";
 			var display_document="display:block";
 			var display_blog="display:block";
+			var display_all="display:block";
 			var paginate_discussion='<li><a href="#" onclick="showPage(1,\'discussion\'); return false;">1</a></li>';
 			var paginate_document='<li><a href="#" onclick="showPage(1,\'document\'); return false;">1</a></li>';
 			var paginate_blog='<li><a href="#" onclick="showPage(1,\'blog\'); return false;">1</a></li>';
@@ -483,8 +491,24 @@ function search() {
 					typeImage ='<span class="jive-icon-med jive-icon-blog"></span>';
 					mainId="post-"+postId+"/"+blogId;
 				}
+				if((loop_check_all>=items_per_page)&& (loop_check_all%items_per_page==0))
+								{
+									console.log("Inside If value ");
+									
+									intial_all=intial_all+1;
+									display_all="display:none";
+									//paginate +="<li><a href='#' onclick='showPage(i); return false;'>"+i+"</li>";	
+									paginate_discussion += '<li><a href="#" onclick=showPage("'+ intial_all + '","all"); return false;>' + intial_all + '</a></li>';
+								}
+								else
+								{
+									intial_all=intial_all;
+								}
+								var page="page_all_"+intial_all;
+				
 						if(row.type!="update"){
 							all +='<div id="div_'+allId+'" class="firstdiv" >'; 
+							all +='<div class="div_'+page+'" style="'+display_all+'">';	
 							all +='<ul>';			
 				            all +=typeImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
                             all +='</ul>';
@@ -686,7 +710,9 @@ function search() {
 					}
 				total_page_blog = intial_blog;	
                                   
-            });
+            }
+			total_page_all = intial_all;	
+			);
           
 			
 				
