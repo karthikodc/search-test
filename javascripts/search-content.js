@@ -14,23 +14,54 @@ function init() {
 //onhover event of expand icon
 $("span.image-button").live('mouseover', function () {
                 var curRowId = $(this).attr("id");
-	        if(curRowId.indexOf("DOC") != -1){
-	           var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
-	           console.log("i'm in if section:document");
-	           expandDocument(docID);
-	        }
-	        else if(curRowId.indexOf("post") != -1){
-			var blogpostId = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
-			console.log("i'm in if section:blogID::"+blogpostId);
-			var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
-			console.log("i'm in if section:PostID::"+finalBlogId)
-			expandBlog(finalBlogId,blogpostId);
-		}
-		else
-		{
-			console.log("i'm in else section");
-			expandDiscussion(curRowId);
-		}
+		if(curRowId.indexOf("all") != -1){
+				if(curRowId.indexOf("DOC") != -1){
+				   var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
+				   console.log("i'm in if section:document");
+				   expandDocument(docID);
+				}
+				else if(curRowId.indexOf("post") != -1){
+				var blogpostId = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
+				console.log("i'm in if section:blogID::"+blogpostId);
+				var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
+				console.log("i'm in if section:PostID::"+finalBlogId)
+				expandBlog(finalBlogId,blogpostId);
+				}
+				else
+				{
+					console.log("i'm in else section");
+					expandDiscussion(curRowId);
+					$(".content").html("");
+					$('.firstdiv').css('background-color', '#FFFFFF');
+					$('#alldiv_'+id).css('background-color', '#F2F2F2');
+				}
+			}
+			else
+			{
+				if(curRowId.indexOf("DOC") != -1){
+				   var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
+				   console.log("i'm in if section:document");
+				   expandDocument(docID);
+				}
+				else if(curRowId.indexOf("post") != -1){
+				var blogpostId = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
+				console.log("i'm in if section:blogID::"+blogpostId);
+				var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
+				console.log("i'm in if section:PostID::"+finalBlogId)
+				expandBlog(finalBlogId,blogpostId);
+				}
+				else
+				{
+					console.log("i'm in else section");
+					expandDiscussion(curRowId);
+					$(".content").html("");
+					$('.firstdiv').css('background-color', '#FFFFFF');
+					$('#div_'+id).css('background-color', '#F2F2F2');
+				}
+			
+			}
+			
+			
 
  });
     
@@ -88,9 +119,7 @@ $("span.image-button").live('mouseover', function () {
 //function for expand button to display the discussions with correct and helpful answers
 function expandDiscussion(id){
         
-	$(".content").html("");
-	$('.firstdiv').css('background-color', '#FFFFFF');
-	$('#div_'+id).css('background-color', '#F2F2F2');
+	
 	console.log("Expand Row Id::: "+ id);
 	var discussionMessage="";
 	var correctanswer="";
@@ -461,7 +490,7 @@ function search() {
 				var allId = (row.resources.self.ref.substring(row.resources.self.ref.lastIndexOf("/"))).substr(1);
 				
 				if(row.type=="discussion"){
-					mainId=allId;
+					mainId="all_"+allId;
 						
 					if(isQuestion)
 					{
@@ -482,7 +511,7 @@ function search() {
 				}else if(row.type=="document"){
 				
 					typeImage ='<span class="jive-icon-med jive-icon-document"></span>';
-					mainId="DOC-"+allId;
+					mainId="all_DOC-"+allId;
 				}else if(row.type=="post"){
 					var postDetailsId=row.resources.self.ref;
 					var blogSummaryId=row.blogSummary.resources.self.ref;
@@ -490,7 +519,7 @@ function search() {
 					var postId = (postDetailsId.substring(postDetailsId.lastIndexOf("/"))).substr(1);
 				
 					typeImage ='<span class="jive-icon-med jive-icon-blog"></span>';
-					mainId="post-"+postId+"/"+blogId;
+					mainId="all_post-"+postId+"/"+blogId;
 				}
 				console.log("intial_all value "+intial_all);
 				console.log("loop_check_all value "+loop_check_all +"items_per_page  "+items_per_page);
@@ -510,7 +539,7 @@ function search() {
 					var page="page_all_"+intial_all;
 				
 						if(row.type!="update"){
-							all +='<div id="div_'+allId+'" class="firstdiv" >'; 
+							all +='<div id="alldiv_'+allId+'" class="firstdiv" >'; 
 							all +='<div class="div_'+page+'" style="'+display_all+'">';	
 							all +='<ul>';			
 				            all +=typeImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
