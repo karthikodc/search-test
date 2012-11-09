@@ -29,7 +29,9 @@
 .search-results ul li a:hover{
      text-decoration:underline;
 }
-
+.search-results{
+ overflow:auto;
+}
 /* Image positions*/
 .jive-icon-med {
      background-image: url('../images/jive-icon-sprites-med.png');
@@ -101,8 +103,7 @@
 
        /*overflow-y: scroll;
        overflow-x: hidden;*/
-       overflow:auto;
-	   height:300px !important;
+      
     
 
 }
