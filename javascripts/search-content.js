@@ -483,7 +483,7 @@ function search() {
 					typeImage ='<span class="jive-icon-med jive-icon-blog"></span>';
 					mainId="post-"+postId+"/"+blogId;
 				}
-							
+						if(row.type!="update"){
 							all +='<div id="div_'+allId+'" class="firstdiv" >'; 
 							all +='<ul>';			
 				            all +=typeImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
@@ -507,7 +507,7 @@ function search() {
 							all +='</div>';				                
 							all +='</div>';
 							
-								//discussion +='<br>';
+							}	//discussion +='<br>';
 					
                         if(row.type=="discussion"){
 						
