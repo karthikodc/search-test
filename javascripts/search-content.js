@@ -406,7 +406,7 @@ function search() {
 			var display_blog="display:block";
 			var paginate_discussion='<li><a href="#" onclick="showPage(1,\'discussion\'); return false;">1</a></li>';
 			var paginate_document='<li><a href="#" onclick="showPage(1,\'document\'); return false;">1</a></li>';
-			var paginate_blog='<li>a href="#" onclick="showPage(1,\'blog\'); return false;">1</a></li>';
+			var paginate_blog='<li><a href="#" onclick="showPage(1,\'blog\'); return false;">1</a></li>';
 			 
             $.each(rows, function(index, row) {
             	url=row.resources.html.ref;
@@ -617,6 +617,7 @@ function search() {
 							post +='</ul>';
 							post +='</div>'; 
                                     
+							post +='</div>';  
 							post +='</div>';  
 							post +='<br>';		
 							loop_check_blog=loop_check_blog+1							
