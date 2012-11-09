@@ -530,6 +530,7 @@ function search() {
                     	    all +='</ul>';
 							all +='</div>';				                
 							all +='</div>';
+							all +='</div>';
 							
 							}	//discussion +='<br>';
 					
