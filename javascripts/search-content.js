@@ -407,7 +407,8 @@ function search() {
 			var paginate_discussion='<li><a href="#" onclick="showPage(1,\'discussion\'); return false;">1</a></li>';
 			var paginate_document='<li><a href="#" onclick="showPage(1,\'document\'); return false;">1</a></li>';
 			var paginate_blog='<li><a href="#" onclick="showPage(1,\'blog\'); return false;">1</a></li>';
-			 
+			var typeImage="";
+			var mainId="";
             $.each(rows, function(index, row) {
             	url=row.resources.html.ref;
 				subject=row.subject;
@@ -448,29 +449,47 @@ function search() {
                 dateM=myDate[1];
 				var finalMonth=monthConvert(dateM);
 				var newDate=finalMonth+" "+myDate[2]+","+myDate[0];
+				var allId = (row.resources.self.ref.substring(row.resources.self.ref.lastIndexOf("/"))).substr(1);
+				
+				if(row.type=="discussion"){
+					mainId=allId;
+						
 					if(isQuestion)
 					{
 					if(isAnswered != 0){
-					discussionImage +='<span class="jive-icon-med jive-icon-discussion-correct"></span>';
+					typeImage +='<span class="jive-icon-med jive-icon-discussion-correct"></span>';
 									
 					 }
 					 else
 					 {
-					  discussionImage +='<span class="jive-icon-med jive-icon-discussion-question"></span>';
+					  typeImage +='<span class="jive-icon-med jive-icon-discussion-question"></span>';
 					  }						
 					}
 							
 						 else
 					{
-					  discussionImage +='<span class="jive-icon-med jive-icon-discussion"></span>';
+					  typeImage +='<span class="jive-icon-med jive-icon-discussion"></span>';
 					}
-							var allId = (row.resources.self.ref.substring(row.resources.self.ref.lastIndexOf("/"))).substr(1);
+				}else if(row.type=="document"){
+				
+					typeImage +='<span class="jive-icon-med jive-icon-document"></span>';
+					mainId="DOC-"+allId;
+				}else if(row.type=="blog"){
+					var postDetailsId=row.resources.self.ref;
+					var blogSummaryId=row.blogSummary.resources.self.ref;
+					var blogId = (blogSummaryId.substring(blogSummaryId.lastIndexOf("/"))).substr(1);
+					var postId = (postDetailsId.substring(postDetailsId.lastIndexOf("/"))).substr(1);
+				
+					typeImage +='<span class="jive-icon-med jive-icon-document"></span>';
+					mainId="post-"+postId+"/"+blogId;
+				}
+							
 							all +='<div id="div_'+allId+'" class="firstdiv" >'; 
 							all +='<ul>';			
-				            all +=discussionImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
+				            all +=typeImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
                             all +='</ul>';
                             all +='<ul>';
-				            all +='<span class="jive-icon-med image-button " id="'+allId+'"></span>';
+				            all +='<span class="jive-icon-med image-button " id="'+mainId+'"></span>';
                     		all +='</ul>'; 
 					
 				            all +='<div class="root1">';  
