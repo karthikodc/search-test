@@ -31,11 +31,7 @@
 }
 .search-results{
  overflow:auto;
- height:300px;
- border:1px solid black;
- -webkit-border-radius:25px;
- -moz-border-radius: 25px;
- border-radius:25px;
+ 
 }
 /* Image positions*/
 .jive-icon-med {
