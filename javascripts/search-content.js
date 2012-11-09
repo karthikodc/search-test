@@ -403,7 +403,7 @@ function search() {
 			var loop_check_document=0;
 			var loop_check_blog=0;
 			var loop_check_all=0;
-			var items_per_page =3;
+			var items_per_page =5;
 			var newcontent = '';
 			var page_index=0;
 			var page="";
