@@ -790,7 +790,7 @@ function search() {
 			//all +=discussion;
 			//all +="<br>"+document;
 			//all +="<br>"+post;
-			all +='<br><div class="pagingControls">Page:<ul>'+paginate_all+'</ul></div>';
+			//all +='<br><div class="pagingControls">Page:<ul>'+paginate_all+'</ul></div>';
 			console.log("discussion::"+discussion);
 			console.log("discussion_count::"+total_page_discussion);
 			$("#tabs-1").html(all);
