@@ -97,14 +97,7 @@ cursor:default;
 color: #000;
 background-color: #FEE496;
 }
-.pagedemo{
-				border: 1px solid #CCC;
-				width:310px;
-				margin:2px;
-                padding:50px 10px;
-                text-align:center;
-				background-color:white;	
-			}
+
 /* Border for search-result*/
 .withborder {
   

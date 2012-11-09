@@ -93,15 +93,6 @@ $(document).ready(function() {
         $(".content").hide();
     });
 });
-$(document).ready(function() {
-	$('ul.pageNumber li').click(function(){
-		$(this).parent().find('li.pagingControls a.selected').removeClass('.pagingControls a.selected');
-		$(this).addClass('.pagingControls a.selected');
-    });
-});
-$('#pageNumber li').click(function(e){
-  $(this).toggleClass('active');
-});
  //function for tabs   
  $(function() {
          $( "#tabs" ).tabs();
@@ -473,14 +464,13 @@ function search() {
 			var display_discussion="display:block";
 			var display_document="display:block";
 			var display_blog="display:block";
-			var display_all="";
+			var display_all="display:block";
 			var paginate_discussion='<li><a href="#" onclick="showPage(1,\'discussion\'); return false;">1</a></li>';
 			var paginate_document='<li><a href="#" onclick="showPage(1,\'document\'); return false;">1</a></li>';
 			var paginate_blog='<li><a href="#" onclick="showPage(1,\'blog\'); return false;">1</a></li>';
 			var paginate_all='<li><a href="#" onclick="showPage(1,\'all\'); return false;">1</a></li>';
 			var typeImage="";
 			var mainId="";
-			var styleclass="";
             $.each(rows, function(index, row) {
             	url=row.resources.html.ref;
 				subject=row.subject;
@@ -564,19 +554,17 @@ function search() {
 						intial_all=intial_all+1;
 						display_all="display:none";
 						paginate_all += '<li><a href="#" onclick=showPage("'+ intial_all + '","all"); return false;>' + intial_all + '</a></li>';
-						styleclass="pagedemo";
 					}
 					else
 					{
 						console.log("Inside All else value ");
 						intial_all=intial_all;
-						styleclass="pagedemo _current";
 					}
 					var page="page_all_"+intial_all;
 				
 						if(row.type!="update"){
 							all +='<div id="alldiv_'+allId+'" class="firstdiv" >'; 
-							all +='<div class="'+styleclass+'" style="'+display_all+'">';	
+							all +='<div class="div_'+page+'" style="'+display_all+'">';	
 							all +='<ul>';			
 				            all +=typeImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
                             all +='</ul>';
@@ -790,17 +778,17 @@ function search() {
 			//all +=discussion;
 			//all +="<br>"+document;
 			//all +="<br>"+post;
-			//all +='<br><div class="pagingControls">Page:<ul>'+paginate_all+'</ul></div>';
+			all +='<br><div class="pagingControls">Page:'+paginate_all+'</div>';
 			console.log("discussion::"+discussion);
 			console.log("discussion_count::"+total_page_discussion);
 			$("#tabs-1").html(all);
-			discussion +='<br><div class="pagingControls">Page:<ul>'+paginate_discussion+'</ul></div>';
+			discussion +='<br><div class="pagingControls">Page:'+paginate_discussion+'</div>';
 			
 			$("#tabs-2").html(discussion);
-			document +='<br><div class="pagingControls">Page:<ul>'+paginate_document+'</ul></div>';
+			document +='<br><div class="pagingControls">Page:'+paginate_document+'</div>';
 			console.log("document::"+document);
 			$("#tabs-3").html(document);
-			post +='<br><div class="pagingControls">Page:<ul>'+paginate_blog+'</ul></div>';
+			post +='<br><div class="pagingControls">Page:'+paginate_blog+'</div>';
 			$("#tabs-4").html(post);
             $("#search-info").show();
 			gadgets.window.adjustHeight();
