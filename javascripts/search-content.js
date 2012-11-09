@@ -33,7 +33,7 @@ $("span.image-button").live('mouseover', function () {
 					expandDiscussion(curRowId);
 					$(".content").html("");
 					$('.firstdiv').css('background-color', '#FFFFFF');
-					$('#alldiv_'+id).css('background-color', '#F2F2F2');
+					$('#alldiv_'+curRowId).css('background-color', '#F2F2F2');
 				}
 			}
 			else
@@ -56,7 +56,7 @@ $("span.image-button").live('mouseover', function () {
 					expandDiscussion(curRowId);
 					$(".content").html("");
 					$('.firstdiv').css('background-color', '#FFFFFF');
-					$('#div_'+id).css('background-color', '#F2F2F2');
+					$('#div_'+curRowId).css('background-color', '#F2F2F2');
 				}
 			
 			}
