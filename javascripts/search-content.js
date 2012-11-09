@@ -415,6 +415,7 @@ function search() {
 			var paginate_discussion='<li><a href="#" onclick="showPage(1,\'discussion\'); return false;">1</a></li>';
 			var paginate_document='<li><a href="#" onclick="showPage(1,\'document\'); return false;">1</a></li>';
 			var paginate_blog='<li><a href="#" onclick="showPage(1,\'blog\'); return false;">1</a></li>';
+			var paginate_all='<li><a href="#" onclick="showPage(1,\'all\'); return false;">1</a></li>';
 			var typeImage="";
 			var mainId="";
             $.each(rows, function(index, row) {
@@ -492,19 +493,18 @@ function search() {
 					mainId="post-"+postId+"/"+blogId;
 				}
 				if((loop_check_all>=items_per_page)&& (loop_check_all%items_per_page==0))
-								{
-									console.log("Inside If value ");
-									
-									intial_all=intial_all+1;
-									display_all="display:none";
-									//paginate +="<li><a href='#' onclick='showPage(i); return false;'>"+i+"</li>";	
-									paginate_discussion += '<li><a href="#" onclick=showPage("'+ intial_all + '","all"); return false;>' + intial_all + '</a></li>';
-								}
-								else
-								{
-									intial_all=intial_all;
-								}
-								var page="page_all_"+intial_all;
+					{
+						console.log("Inside All If value ");
+						
+						intial_all=intial_all+1;
+						display_all="display:none";
+						paginate_all += '<li><a href="#" onclick=showPage("'+ intial_all + '","all"); return false;>' + intial_all + '</a></li>';
+					}
+					else
+					{
+						intial_all=intial_all;
+					}
+					var page="page_all_"+intial_all;
 				
 						if(row.type!="update"){
 							all +='<div id="div_'+allId+'" class="firstdiv" >'; 
@@ -720,7 +720,7 @@ function search() {
 			//all +=discussion;
 			//all +="<br>"+document;
 			//all +="<br>"+post;
-			
+			all +='<br><div class="pagingControls">Page:'+paginate_all+'</div>';
 			console.log("discussion::"+discussion);
 			console.log("discussion_count::"+total_page_discussion);
 			$("#tabs-1").html(all);
