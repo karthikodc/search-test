@@ -534,7 +534,7 @@ function search() {
 							all +='</div>';				                
 							all +='</div>';
 							all +='</div>';
-							
+							loop_check_all=loop_check_all+1
 							}	//discussion +='<br>';
 					
                         if(row.type=="discussion"){
@@ -712,7 +712,7 @@ function search() {
 							loop_check_blog=loop_check_blog+1							
 							             
 					}
-					loop_check_all=loop_check_all+1
+					
 				total_page_blog = intial_blog;	
                 total_page_all = intial_all;             
             }
