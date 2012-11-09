@@ -30,10 +30,11 @@ $("span.image-button").live('mouseover', function () {
 				else
 				{
 					console.log("i'm in else section");
-					expandDiscussion(curRowId);
+					var discussionId = (curRowId.substring(curRowId.lastIndexOf("_"))).substr(1);
+					expandDiscussion(discussionId);
 					$(".content").html("");
 					$('.firstdiv').css('background-color', '#FFFFFF');
-					$('#alldiv_'+curRowId).css('background-color', '#F2F2F2');
+					$('#alldiv_'+discussionId).css('background-color', '#F2F2F2');
 				}
 			}
 			else
