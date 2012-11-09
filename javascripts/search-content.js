@@ -492,6 +492,8 @@ function search() {
 					typeImage ='<span class="jive-icon-med jive-icon-blog"></span>';
 					mainId="post-"+postId+"/"+blogId;
 				}
+				console.log("intial_all value "+intial_all);
+				console.log("loop_check_all value "+loop_check_all +"items_per_page  "+items_per_page);
 				if((loop_check_all>=items_per_page)&& (loop_check_all%items_per_page==0))
 					{
 						console.log("Inside All If value ");
@@ -502,6 +504,7 @@ function search() {
 					}
 					else
 					{
+						console.log("Inside All else value ");
 						intial_all=intial_all;
 					}
 					var page="page_all_"+intial_all;
