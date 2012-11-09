@@ -18,6 +18,9 @@ $("span.image-button").live('mouseover', function () {
 				if(curRowId.indexOf("DOC") != -1){
 				   var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
 				   console.log("i'm in if section:document");
+				   $(".content").html("");
+					$('.firstdiv').css('background-color', '#FFFFFF');
+					$('#alldiv_'+docID).css('background-color', '#F2F2F2');
 				   expandDocument(docID);
 				}
 				else if(curRowId.indexOf("post") != -1){
@@ -25,6 +28,11 @@ $("span.image-button").live('mouseover', function () {
 				console.log("i'm in if section:blogID::"+blogpostId);
 				var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
 				console.log("i'm in if section:PostID::"+finalBlogId)
+				var postId=blogpostId;
+				var finalpostId=postId.substr(0,postId.indexOf('/'))
+				$(".content").html("");
+				$('.firstdiv').css('background-color', '#FFFFFF');
+				$('#alldiv_'+finalpostId).css('background-color', '#F2F2F2');
 				expandBlog(finalBlogId,blogpostId);
 				}
 				else
@@ -42,22 +50,33 @@ $("span.image-button").live('mouseover', function () {
 				if(curRowId.indexOf("DOC") != -1){
 				   var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
 				   console.log("i'm in if section:document");
+				   $(".content").html("");
+					$('.firstdiv').css('background-color', '#FFFFFF');
+					$('#div_'+docID).css('background-color', '#F2F2F2');
 				   expandDocument(docID);
+				   
 				}
 				else if(curRowId.indexOf("post") != -1){
+				
 				var blogpostId = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
 				console.log("i'm in if section:blogID::"+blogpostId);
 				var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
 				console.log("i'm in if section:PostID::"+finalBlogId)
+				var postId=blogpostId;
+				var finalpostId=postId.substr(0,postId.indexOf('/'))
+				$(".content").html("");
+				$('.firstdiv').css('background-color', '#FFFFFF');
+				$('#div_'+finalpostId).css('background-color', '#F2F2F2');
 				expandBlog(finalBlogId,blogpostId);
 				}
 				else
 				{
 					console.log("i'm in else section");
-					expandDiscussion(curRowId);
 					$(".content").html("");
 					$('.firstdiv').css('background-color', '#FFFFFF');
 					$('#div_'+curRowId).css('background-color', '#F2F2F2');
+					expandDiscussion(curRowId);
+					
 				}
 			
 			}
@@ -209,9 +228,7 @@ function expandDiscussion(id){
 
 //function for expand button to display the documents
 function expandDocument(id){
-	$(".content").html("");
-	$('.firstdiv').css('background-color', '#FFFFFF');
-	$('#div_'+id).css('background-color', '#F2F2F2');
+	
        //  $('#div_'+id).css({"background-color":"#F2F2F2","background-repeat": "no-repeat"});
 		console.log("You are in document section id ::"+id);
 		var request = osapi.jive.core.documents.get({id: id});
