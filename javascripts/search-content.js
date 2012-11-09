@@ -85,11 +85,11 @@ $("span.image-button").live('mouseover', function () {
 			
 
  });
-    $("div.search-results").live('click', function () {
-	
-		$(".content").html("");
-	
-	 });
+    
+$("#tabs-1").click(function() {
+  alert("Handler for .click() called.");
+  $(".content").html("");
+});
  //function for tabs   
  $(function() {
          $( "#tabs" ).tabs();
