@@ -396,7 +396,7 @@ function search() {
 			var loop_check_discussion=0;
 			var loop_check_document=0;
 			var loop_check_blog=0;
-			var items_per_page =1;
+			var items_per_page =3;
 			var newcontent = '';
 			var page_index=0;
 			var page="";
@@ -515,7 +515,7 @@ function search() {
 								discussion +='</div>';				                
 								discussion +='</div>';
 								discussion +='</div>';
-								discussion +='<br>';
+								//discussion +='<br>';
 								loop_check_discussion=loop_check_discussion+1
 								
                         }
@@ -569,7 +569,7 @@ function search() {
                                        
                     		document +='</div>';
 							document +='</div>';
-                    		document +='<br>';
+                    		//document +='<br>';
 							loop_check_document=loop_check_document+1
                       
                         }
@@ -620,7 +620,7 @@ function search() {
                                     
 							post +='</div>';  
 							post +='</div>';  
-							post +='<br>';		
+							//post +='<br>';		
 							loop_check_blog=loop_check_blog+1							
 							             
 					}
@@ -638,13 +638,13 @@ function search() {
 			console.log("discussion::"+discussion);
 			console.log("discussion_count::"+total_page_discussion);
 			//$("#tabs-1").html(all);
-			discussion +='<div class="pagingControls">Page:'+paginate_discussion+'</div>';
+			discussion +='<br><div class="pagingControls">Page:'+paginate_discussion+'</div>';
 			
 			$("#tabs-1").html(discussion);
-			document +='<div class="pagingControls">Page:'+paginate_document+'</div>';
+			document +='<br><div class="pagingControls">Page:'+paginate_document+'</div>';
 			console.log("document::"+document);
 			$("#tabs-2").html(document);
-			post +='<div class="pagingControls">Page:'+paginate_blog+'</div>';
+			post +='<br><div class="pagingControls">Page:'+paginate_blog+'</div>';
 			$("#tabs-3").html(post);
             $("#search-info").show();
 			gadgets.window.adjustHeight();
