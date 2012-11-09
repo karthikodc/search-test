@@ -93,22 +93,11 @@ $(document).ready(function() {
         $(".content").hide();
     });
 });
-$(document).ready(function() {
 
-    $('ul.pageNumber li').click(function(e) {
-        var $target = $(e.target);
-        if(!$target.is("li")) //magic happens here!!
-        {
-            return;
-        }
-		alert("$target");
-        var launch = $('a.launch', this);
-        if (launch.size() > 0) 
-        { 
-          eval(launch[0].onclick());
-        }
+$('ul.pageNumber li').click(function(){
+     $(this).parent().find('li.text_color').removeClass('text_color');
+     $(this).addClass('text_color');
     });
-});
  //function for tabs   
  $(function() {
          $( "#tabs" ).tabs();
