@@ -88,11 +88,11 @@
      color: #15B;
      border: 1px solid black;
 }
-.pagingControls a:hover{
+.pagingControls .pageNumber a:hover{
 color: #000;
 background-color: #FEE496;
 }
-.pagingControls a.active{
+.pagingControls .pageNumbera.selected{
 cursor:default;
 color: #000;
 background-color: #FEE496;
