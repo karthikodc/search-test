@@ -88,6 +88,10 @@
      color: #15B;
      border: 1px solid black;
 }
+.pagingControls a:hover, .pagingControls a.selected{
+color: #000;
+background-color: #FEE496;
+}
 
 /* Border for search-result*/
 .withborder {
