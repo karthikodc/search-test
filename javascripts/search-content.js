@@ -86,14 +86,14 @@ $("span.image-button").live('mouseover', function () {
 
  });
     
-$("#tabs-2").click(function() {
-  alert("Handler for .click() called.");
-  $(".content").html("");
-});
+
  //function for tabs   
  $(function() {
          $( "#tabs" ).tabs();
-        
+        $("#tabs-2").click(function() {
+  alert("Handler for .click() called.");
+  $(".content").html("");
+});
  });
 
 //function for date format
