@@ -709,9 +709,9 @@ function search() {
 							             
 					}
 				total_page_blog = intial_blog;	
-                                  
+                total_page_all = intial_all;             
             }
-			total_page_all = intial_all;	
+				
 			);
           
 			
