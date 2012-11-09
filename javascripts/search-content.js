@@ -631,21 +631,21 @@ function search() {
 			
 				
             //console.log(html);
-			//all +=discussion;
-			//all +="<br>"+document;
-			//all +="<br>"+post;
+			all +=discussion;
+			all +="<br>"+document;
+			all +="<br>"+post;
 			
 			console.log("discussion::"+discussion);
 			console.log("discussion_count::"+total_page_discussion);
-			//$("#tabs-1").html(all);
+			$("#tabs-1").html(all);
 			discussion +='<br><div class="pagingControls">Page:'+paginate_discussion+'</div>';
 			
-			$("#tabs-1").html(discussion);
+			$("#tabs-2").html(discussion);
 			document +='<br><div class="pagingControls">Page:'+paginate_document+'</div>';
 			console.log("document::"+document);
-			$("#tabs-2").html(document);
+			$("#tabs-3").html(document);
 			post +='<br><div class="pagingControls">Page:'+paginate_blog+'</div>';
-			$("#tabs-3").html(post);
+			$("#tabs-4").html(post);
             $("#search-info").show();
 			gadgets.window.adjustHeight();
         }
