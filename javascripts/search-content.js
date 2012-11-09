@@ -86,7 +86,13 @@ $("span.image-button").live('mouseover', function () {
 
  });
     
+$(document).ready(function() {
 
+    $('ul.tablist li').click(function(e) {
+		$('.firstdiv').css('background-color', '#FFFFFF');
+        $(".content").hide();
+    });
+});
  //function for tabs   
  $(function() {
          $( "#tabs" ).tabs();
@@ -350,6 +356,8 @@ function expandBlog(blogId, blogpostId){
 }
 function showPage(page,type)
 {
+$('.firstdiv').css('background-color', '#FFFFFF');
+$(".content").hide();
  //$(".maindiv").hide();
 if(type=="discussion")
 {
