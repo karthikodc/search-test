@@ -515,6 +515,7 @@ function search() {
 								discussion +='</div>';				                
 								discussion +='</div>';
 								discussion +='</div>';
+								discussion +='<br>';
 								loop_check_discussion=loop_check_discussion+1
 								
                         }
@@ -568,7 +569,7 @@ function search() {
                                        
                     		document +='</div>';
 							document +='</div>';
-                    		//document +='<br>';
+                    		document +='<br>';
 							loop_check_document=loop_check_document+1
                       
                         }
