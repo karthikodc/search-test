@@ -576,7 +576,7 @@ function search() {
 				
 						if(row.type!="update"){
 							all +='<div id="alldiv_'+allId+'" class="firstdiv" >'; 
-							all +='<div class="div_'+page+'"' '"'+styleclass'" style="'+display_all+'">';	
+							all +='<div class="'+styleclass+'" style="'+display_all+'">';	
 							all +='<ul>';			
 				            all +=typeImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
                             all +='</ul>';
