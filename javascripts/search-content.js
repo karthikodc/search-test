@@ -296,7 +296,8 @@ function expandDocument(id){
 
 //function for expand button to display the blog
 function expandBlog(blogId, blogpostId){
-	
+	var postId=blogpostId;
+	var finalpostId=postId.substr(0,postId.indexOf('/'))
 	console.log("Inside Blog expand");
 	var blogdata="";
 	var request = osapi.jive.core.blogs.get({id:blogId});
