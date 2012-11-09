@@ -86,7 +86,7 @@ $("span.image-button").live('mouseover', function () {
 
  });
     
-$("#tabs-1").click(function() {
+$("#tabs-2").click(function() {
   alert("Handler for .click() called.");
   $(".content").html("");
 });
